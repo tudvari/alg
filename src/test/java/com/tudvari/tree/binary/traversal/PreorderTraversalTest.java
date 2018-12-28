@@ -1,4 +1,6 @@
-package com.tudvari.tree.binary;
+package com.tudvari.tree.binary.traversal;
+
+import com.tudvari.tree.binary.Node;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class InOrderTraversalTest
+public class PreorderTraversalTest
 {
     @Test public void empty_root()
     {
-        List result = InorderTraversal.traverse(null, Collections.EMPTY_LIST);
+        List result = PreorderTraversal.traverse(null, Collections.EMPTY_LIST);
         Assert.assertTrue(result.isEmpty());
     }
 
@@ -21,8 +23,16 @@ public class InOrderTraversalTest
         Node<Integer> left = new Node(1);
         root.setLeft(left);
 
-        List result = InorderTraversal.traverse(root, new ArrayList<Integer>());
+        List result = PreorderTraversal.traverse(root, new ArrayList<Integer>());
+
         Assert.assertEquals(2, result.size());
+
+        List<Node> expected = new ArrayList<>();
+
+        expected.add(root);
+        expected.add(left);
+
+        Assert.assertEquals(expected, result);
     }
 
     @Test public void one_left_and_right_item()
@@ -34,13 +44,14 @@ public class InOrderTraversalTest
         root.setRight(right);
         root.setLeft(left);
 
-        List result = InorderTraversal.traverse(root, new ArrayList<Integer>());
+        List result = PreorderTraversal.traverse(root, new ArrayList<Integer>());
+
         Assert.assertEquals(3, result.size());
 
         List<Node> expected = new ArrayList<>();
 
-        expected.add(left);
         expected.add(root);
+        expected.add(left);
         expected.add(right);
 
         Assert.assertEquals(expected, result);
@@ -67,17 +78,20 @@ public class InOrderTraversalTest
         root.setRight(right);
         root.setLeft(left);
 
-        List result = InorderTraversal.traverse(root, new ArrayList<Integer>());
+        List result = PreorderTraversal.traverse(root, new ArrayList<Integer>());
+
         Assert.assertEquals(7, result.size());
 
         List<Node> expected = new ArrayList<>();
 
-        expected.add(left21);
-        expected.add(left);
-        expected.add(left22);
         expected.add(root);
-        expected.add(right21);
+
+        expected.add(left);
+        expected.add(left21);
+        expected.add(left22);
+
         expected.add(right);
+        expected.add(right21);
         expected.add(right22);
 
         Assert.assertEquals(expected, result);

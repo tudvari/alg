@@ -1,4 +1,6 @@
-package com.tudvari.tree.binary;
+package com.tudvari.tree.binary.traversal;
+
+import com.tudvari.tree.binary.Node;
 
 import java.util.Collections;
 import java.util.List;
