@@ -4,7 +4,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter @EqualsAndHashCode public class Node<T>
+import java.math.BigDecimal;
+
+@Getter @Setter @EqualsAndHashCode public class Node<T extends Number> implements Comparable<T>
 {
     private Node<T> left;
     private Node<T> right;
@@ -13,5 +15,10 @@ import lombok.Setter;
     public Node(T value)
     {
         this.value = value;
+    }
+
+    @Override public int compareTo(T o)
+    {
+        return (new BigDecimal(value.toString()).compareTo(new BigDecimal(o.toString())));
     }
 }
