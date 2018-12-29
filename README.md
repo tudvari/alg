@@ -10,8 +10,10 @@ This repository collects Java11 implementations of different algorithms. For exa
 
 ## Implemtations
 
-- Binary Tree Algorithms
+- Binary Tree Traversal Algorithms
   1. Inorder traversal
   2. Preorder traversal
   3. Postorder traversal
+
+- Binary Search Tree build Algorithm
 
