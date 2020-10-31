@@ -2,8 +2,7 @@
 
 Collections of algorithm implementations in Java. 
 
-[![Build Status](https://travis-ci.org/tudvari/alg.svg?branch=master)](https://travis-ci.org/tudvari/alg)
-
+![Java CI with Maven](https://github.com/tudvari/alg/workflows/Java%20CI%20with%20Maven/badge.svg)
 ## About this repository
 
 This repository collects Java11 implementations of different algorithms. For example search, sort and tree algorithms.
